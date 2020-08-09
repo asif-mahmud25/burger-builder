@@ -1,13 +1,12 @@
 import React from 'react';
+import Burger from '../../components/Buger/Burger'
 
 class BurgerBuilder extends React.Component {
 
     render () {
         return (
             <React.Fragment>
-                <div>
-                    Burger
-                </div>
+                <Burger />
                 <div>
                     Build Controls
                 </div>

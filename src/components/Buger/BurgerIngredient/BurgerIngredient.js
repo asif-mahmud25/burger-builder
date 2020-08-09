@@ -10,8 +10,8 @@ const BurgerIngredient = (props) => {
     }else if(props.type === 'bread-top'){
         ingredient = (
             <div className={style.BreadTop}>
-                <div className={style.Seed1}></div>
-                <div className={style.Seed2}></div>
+                <div className={style.Seeds1}></div>
+                <div className={style.Seeds2}></div>
             </div>
         );
     }else if(props.type === 'meat'){
