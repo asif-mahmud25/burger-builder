@@ -20,7 +20,8 @@ const BuildControls = (props) => {
                 <BuildControl key={el.label} 
                 label={el.label} 
                 addIngredient={() => props.addIngredient(el.type)}
-                removeIngredient={() => props.removeIngredient(el.type)}/>
+                removeIngredient={() => props.removeIngredient(el.type)}
+                disabled={props.disabled[el.type]}/>
                 );
              
             })
