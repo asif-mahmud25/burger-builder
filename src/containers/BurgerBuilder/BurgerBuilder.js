@@ -1,6 +1,8 @@
 import React from 'react';
 import Burger from '../../components/Buger/Burger'
 import BuildControls from '../../components/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/UI/OrderSummary/OrderSummary';
 
 
 const INGREDIENT_PRICES =    {
@@ -20,7 +22,24 @@ class BurgerBuilder extends React.Component {
             meat: 0
         },
 
-        totalPrice: 4
+        totalPrice: 4,
+        purchasable: false,
+        purchasing: false
+    }
+
+    updatePurchasable (ingredients){
+        const igCount = Object.keys(ingredients)
+        .map((igKey)=>{
+            return ingredients[igKey];
+        });
+
+        let sum = 0;
+
+        igCount.forEach((el)=>{
+            sum = sum + el;
+        });
+
+        this.setState({purchasable: sum > 1});
     }
 
     addIngredientHandler = (type) => {
@@ -38,6 +57,8 @@ class BurgerBuilder extends React.Component {
             ingredients: updatedIngredients,
             totalPrice: newPrice
         });
+
+        this.updatePurchasable(updatedIngredients);
      }
 
     removeIngredientHandler = (type) => {
@@ -58,6 +79,16 @@ class BurgerBuilder extends React.Component {
             ingredients: updatedIngredients,
             totalPrice: newPrice
         });
+
+        this.updatePurchasable(updatedIngredients);
+    }
+
+    setPurchasingHandler = () => {
+        this.setState({purchasing: true});
+    }
+
+    cancelOrderHandler = () => {
+        this.setState({purchasing: false});
     }
 
     render () {
@@ -72,11 +103,17 @@ class BurgerBuilder extends React.Component {
 
         return (
             <React.Fragment>
+                <Modal show={this.state.purchasing}>
+                    <OrderSummary ingredients={this.state.ingredients}
+                    cancelOrder={this.cancelOrderHandler}/>
+                </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <div>
                     <BuildControls addIngredient={this.addIngredientHandler}
                     removeIngredient={this.removeIngredientHandler}
                     disabled={disabledInfo}
+                    purchasable={this.state.purchasable}
+                    order={this.setPurchasingHandler}
                     price={this.state.totalPrice}/>
                 </div>
             </React.Fragment>
