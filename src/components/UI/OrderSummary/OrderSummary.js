@@ -13,10 +13,10 @@ const OrderSummary = (props) => {
         <ul>
             {itemsList}
         </ul>
-        <button>CONTINUE</button>
+        <p>Total: ${props.totalPrice.toFixed(2)}</p>
+        <button onClick={props.continueOrder}>CONTINUE</button>
         <button onClick={props.cancelOrder}>CANCEL</button>
         </div>
-        
     )
 };
 
