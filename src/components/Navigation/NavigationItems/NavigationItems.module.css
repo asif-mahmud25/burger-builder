@@ -1,0 +1,14 @@
+.NavigationItems {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.NavigationItems li {
+    margin-left: 20px;
+}
+
+.NavigationItems li a {
+    text-decoration: none;
+    color: black;
+}

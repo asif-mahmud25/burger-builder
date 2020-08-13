@@ -1,13 +1,15 @@
 import React from 'react';
 import style from './NavBar.module.css';
+import Logo from '../../Logo/Logo';
+import NavigationItems from '../NavigationItems/NavigationItems';
 
-const NavBar = () => {
+const NavBar = (props) => {
     return(
         <header className={style.NavBar}>
             <div>SideBar</div>
-            <div>Logo</div>
+            <Logo />
             <nav>
-                ...
+               <NavigationItems />
             </nav>
         </header>
     )
