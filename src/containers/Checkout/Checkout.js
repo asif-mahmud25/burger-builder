@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutSummery from '../../components/Order/CheckoutSummery/CheckoutSummery';
+import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 
 import style from './Checkout.module.css';
 
@@ -17,7 +17,7 @@ class Checkout extends React.Component {
     render(){
         return(
             <div className={style.Checkout}>
-                <CheckoutSummery ingredients={this.state.ingredients}/>
+                <CheckoutSummary ingredients={this.state.ingredients}/>
             </div>
         )
     }

@@ -1,10 +1,10 @@
 import React from 'react';
 import Burger from '../../Buger/Burger';
-import style from './CheckoutSummery.module.css';
+import style from './CheckoutSummary.module.css';
 
-const CheckoutSummery = (props) => {
+const CheckoutSummary = (props) => {
     return(
-        <div className={style.CheckoutSummery}>
+        <div className={style.CheckoutSummary}>
             <h2>We hope it tastes good!</h2>
             <div>
                 <Burger ingredients={props.ingredients} />
@@ -15,4 +15,4 @@ const CheckoutSummery = (props) => {
     )
 }
 
-export default CheckoutSummery;
+export default CheckoutSummary;
