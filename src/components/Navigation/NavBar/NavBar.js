@@ -1,13 +1,11 @@
 import React from 'react';
 import style from './NavBar.module.css';
-import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
 const NavBar = (props) => {
     return(
         <header className={style.NavBar}>
-            <div>SideBar</div>
-            <Logo />
+            <div>BURGER BUILDER</div>
             <nav>
                <NavigationItems />
             </nav>

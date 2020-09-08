@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-
 import Burger from '../../components/Buger/Burger'
 import BuildControls from '../../components/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';

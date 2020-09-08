@@ -12,3 +12,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
