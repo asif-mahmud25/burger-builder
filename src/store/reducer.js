@@ -11,7 +11,23 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-
+    if(action.type === actionTypes.ADD_INGREDIENT){
+        return{
+            ...state,
+            ingredients: {
+                ...state.ingredients,
+                [action.ingredientName]: state.ingredients[action.ingredientName] + 1
+            }
+        }
+    }else if(action.type === actionTypes.REMOVE_INGREDIENT){
+        return{
+            ...state,
+            ingredients: {
+                ...state.ingredients,
+                [action.ingredientName]: state.ingredients[action.ingredientName] + 1
+            }
+        }
+    }
 };
 
 export default reducer;
