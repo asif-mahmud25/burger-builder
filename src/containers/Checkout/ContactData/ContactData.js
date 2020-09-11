@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Spiner from '../../../components/UI/Spinner/Spinner';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import style from './ContactData.module.css';
 
 class ContactData extends React.Component {
@@ -105,4 +105,11 @@ class ContactData extends React.Component {
     }
 }
 
-export default withRouter(ContactData);
+const mapStateToProps = (state) => {
+    return {
+        ingredients: state.ingredients,
+        price: state.totalPrice
+    }
+}
+
+export default connect(mapStateToProps)(ContactData);

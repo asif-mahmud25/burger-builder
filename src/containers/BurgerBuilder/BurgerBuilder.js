@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 class BurgerBuilder extends React.Component {
 
     state = {
-        purchasable: false,
         purchasing: false,
         loading: false,
         error: false
@@ -30,7 +29,7 @@ class BurgerBuilder extends React.Component {
             sum = sum + el;
         });
 
-        this.setState({purchasable: sum > 1});
+       return sum > 1;
     }
 
     
@@ -43,18 +42,7 @@ class BurgerBuilder extends React.Component {
     }
 
     continueOrderHandler = () => {
-
-        const queryParams = [];
-        for (let i in this.props.ingredients) {
-            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.props.ingredients[i]));
-        }
-
-        queryParams.push('price=' + this.props.totalPrice);
-        const queryString = queryParams.join('&');
-        this.props.history.push({
-            pathname: '/checkout',
-            search: '?' + queryString
-        });
+        this.props.history.push('/checkout');
     }
 
     exitErrorHandler = () => {
@@ -96,7 +84,7 @@ class BurgerBuilder extends React.Component {
                     <BuildControls addIngredient={this.props.onIngredientAdd}
                     removeIngredient={this.props.onIngredientRemove}
                     disabled={disabledInfo}
-                    purchasable={this.state.purchasable}
+                    purchasable={this.updatePurchasable(this.props.ingredients)}
                     order={this.setPurchasingHandler}
                     price={this.props.totalPrice}/>
                 </div>
