@@ -40,6 +40,7 @@ class ContactData extends React.Component {
                     .then(resposnse => {
                         console.log(resposnse);
                         this.setState({loading: false});
+                        this.props.onRedirect();
                         this.props.history.push('/');
                     })
                     .catch(error => {
@@ -112,4 +113,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = (dispatch) => {
+    return{
+        onRedirect : () => dispatch({type: 'REDIRECT_AFTER_ORDER'})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactData);
