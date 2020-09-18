@@ -6,3 +6,7 @@
 .Remove {
     display: none;
 }
+
+.ChangeAuthMode {
+    cursor: pointer;
+}
