@@ -7,7 +7,11 @@ const initialState = {
         cheese: 0,
         meat: 0
     },
-    totalPrice: 4
+    totalPrice: 4,
+    auth: {
+        idToken: null,
+        userId: null
+    }
 };
 
 const INGREDIENT_PRICES =    {
@@ -48,7 +52,17 @@ const reducer = (state = initialState, action) => {
            },
            totalPrice: 4
         }
-    }else{
+    }else if(action.type === 'AUTH_SUCCESS'){
+        return{
+            ...state,
+            auth: {
+                ...state.auth,
+                idToken: action.idToken,
+                userId: action.userId
+            }
+        }
+    }
+    else{
         return state;
     }
 };

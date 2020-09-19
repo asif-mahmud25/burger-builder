@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Auth.module.css';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 class Auth extends React.Component {
 
@@ -9,7 +10,8 @@ class Auth extends React.Component {
         password: '',
         emailValid: true,
         passwordValid: true,
-        isSignup: true
+        isSignup: true,
+        authErrorMsg: ''
     }
 
     emailChangeHandler = (event) => {
@@ -59,9 +61,12 @@ class Auth extends React.Component {
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
                  .then(response => {
                      console.log(response);
+                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
+                     this.setState({authErrorMsg: ''});                                        
                  })
                  .catch(error => {
-                     console.log(error);
+                     console.log(error.response.data.error.message);
+                     this.setState({authErrorMsg: error.response.data.error.message});
                  });
         }
 
@@ -77,9 +82,12 @@ class Auth extends React.Component {
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
                     .then(response => {
                         console.log(response);
+                        this.props.onAuthSuccess(response.data.idToken, response.data.localId);
+                        this.setState({authErrorMsg: ''});
                     })
                     .catch(error => {
-                        console.log(error);
+                        console.log(error.response.data.error.message);
+                        this.setState({authErrorMsg: error.response.data.error.message});
                     });
         }
                
@@ -87,10 +95,25 @@ class Auth extends React.Component {
     }
 
     switchSignupHandler = () => {
+
         if(this.state.isSignup){
-            this.setState({isSignup: false});
+            this.setState({
+                email: '',
+                password: '',
+                emailValid: true,
+                passwordValid: true,
+                isSignup: false,
+                authErrorMsg: ''
+            });
         }else{
-            this.setState({isSignup: true});
+            this.setState({
+                email: '',
+                password: '',
+                emailValid: true,
+                passwordValid: true,
+                isSignup: true,
+                authErrorMsg: ''
+            });
         }
     }
 
@@ -114,6 +137,7 @@ class Auth extends React.Component {
                     <input type="password" placeholder="Password" value={this.state.password} onChange={this.passwordChangeHandler}/>
                     <p className={warningStylePassword}>Minimum 8 characters with atleast 1 letter and 1 number.</p>
                     <button type="submit">Submit</button>
+                    <p className={style.Validation}>{this.state.authErrorMsg}</p>
                     <p className={style.ChangeAuthMode} onClick={this.switchSignupHandler}>Go to {this.state.isSignup ? 'Sing In' : 'Sign Up'}</p>
                 </form>
             </div>
@@ -121,4 +145,11 @@ class Auth extends React.Component {
     }
 }
 
-export default Auth;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAuthSuccess: (idToken, userId) => dispatch({type: 'AUTH_SUCCESS', idToken: idToken, userId: userId})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Auth);
