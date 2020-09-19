@@ -58,7 +58,7 @@ class Auth extends React.Component {
 
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
                  .then(response => {
-                     console.log(response.data);
+                     console.log(response);
                  })
                  .catch(error => {
                      console.log(error);
@@ -76,7 +76,7 @@ class Auth extends React.Component {
 
             axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
                     .then(response => {
-                        console.log(response.data);
+                        console.log(response);
                     })
                     .catch(error => {
                         console.log(error);
