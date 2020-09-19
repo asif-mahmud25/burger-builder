@@ -36,7 +36,7 @@ class ContactData extends React.Component {
                 }
                 
                 //Posting data to firebase
-                axios.post('https://burger-builder-7fbdc.firebaseio.com/orders.json', order)
+                axios.post('https://burger-builder-7fbdc.firebaseio.com/orders.json?auth=' + this.props.idToken, order)
                     .then(resposnse => {
                         console.log(resposnse);
                         this.setState({loading: false});
@@ -44,7 +44,7 @@ class ContactData extends React.Component {
                         this.props.history.push('/');
                     })
                     .catch(error => {
-                        console.log(error);
+                        console.log(error.message);
                         this.setState({loading: false});
                     });
             }else{
@@ -70,7 +70,7 @@ class ContactData extends React.Component {
         let formStatus = <h3>Enter your data</h3>;
 
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 <input type="text" name="name" placeholder="Your name" value={this.state.orderForm.name} onChange={this.inputChangeHandler}/>
                 <input type="email" name="email" placeholder="Your email" value={this.state.orderForm.email} onChange={this.inputChangeHandler}/>
                 <input type="text" name="street" placeholder="Street" value={this.state.orderForm.street} onChange={this.inputChangeHandler}/>
@@ -80,7 +80,7 @@ class ContactData extends React.Component {
                     <option value="fastest">Fastest</option>
                     <option value="cheapest">Cheapest</option>
                 </select>
-                <button onClick={this.orderHandler}>Order</button>
+                <button type="submit">Order</button>
             </form>
         );
 
@@ -92,8 +92,9 @@ class ContactData extends React.Component {
         let validateMsg = null;
 
         if(this.state.inputError){
-            validateMsg = <h4 className={style.validateMsg}>Please fillup all the fields!</h4>
+            validateMsg = <h4 className={style.validateMsg}>Please fillup all the fields!</h4>;
         }
+
         return(
             <div className="container">
                 <div className= {style.formStyle}>
@@ -109,7 +110,8 @@ class ContactData extends React.Component {
 const mapStateToProps = (state) => {
     return {
         ingredients: state.ingredients,
-        price: state.totalPrice
+        price: state.totalPrice,
+        idToken: state.auth.idToken 
     }
 }
 

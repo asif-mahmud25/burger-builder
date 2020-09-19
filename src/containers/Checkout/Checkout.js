@@ -17,15 +17,22 @@ class Checkout extends React.Component {
     }
 
     render(){
+
+        let dataForm = (
+            <Route path={this.props.match.url + '/contact-data'} 
+                component={ContactData}/>
+        );
+
+        if(this.props.isAuth === false){
+            dataForm = <p>Please Log In to Place Order!</p>
+        }
         return(
             <div className={style.Checkout}>
                 <CheckoutSummary
                 checkoutCancel={this.checkoutCancelHandler}
                 checkoutContinue={this.checkoutContinueHandler} 
                 ingredients={this.props.ingredients}/>
-
-                <Route path={this.props.match.url + '/contact-data'} 
-                component={ContactData}/>
+                {dataForm}
             </div>
         )
     }
@@ -34,7 +41,8 @@ class Checkout extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        ingredients: state.ingredients
+        ingredients: state.ingredients,
+        isAuth: state.auth.idToken !== null
     }
 };
 
