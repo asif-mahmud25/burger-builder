@@ -61,6 +61,15 @@ const reducer = (state = initialState, action) => {
                 userId: action.userId
             }
         }
+    }else if(action.type === 'LOGOUT'){
+        return{
+            ...state,
+            auth: {
+                ...state.auth,
+                idToken: null,
+                userId: null
+            }
+        }
     }
     else{
         return state;

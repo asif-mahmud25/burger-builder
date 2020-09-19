@@ -16,22 +16,22 @@ class Checkout extends React.Component {
         this.props.history.replace('/checkout/contact-data');
     }
 
-    render(){
+    render() {
 
         let dataForm = (
-            <Route path={this.props.match.url + '/contact-data'} 
-                component={ContactData}/>
+            <Route path={this.props.match.url + '/contact-data'}
+                component={ContactData} />
         );
 
-        if(this.props.isAuth === false){
+        if (this.props.isAuth === false) {
             dataForm = <p>Please Log In to Place Order!</p>
         }
-        return(
+        return (
             <div className={style.Checkout}>
                 <CheckoutSummary
-                checkoutCancel={this.checkoutCancelHandler}
-                checkoutContinue={this.checkoutContinueHandler} 
-                ingredients={this.props.ingredients}/>
+                    checkoutCancel={this.checkoutCancelHandler}
+                    checkoutContinue={this.checkoutContinueHandler}
+                    ingredients={this.props.ingredients} />
                 {dataForm}
             </div>
         )

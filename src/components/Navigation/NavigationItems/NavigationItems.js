@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import style from './NavigationItems.module.css';
 
 const NavigationItems = (props) => {
-    console.log('from nvigate items isAuth: ' + props.isAuth);
+
     let orderLink = null;
 
     let authStat = <li><Link to="/auth">Sign Up</Link></li>;
