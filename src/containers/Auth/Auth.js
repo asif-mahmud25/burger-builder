@@ -66,6 +66,7 @@ class Auth extends React.Component {
                     console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
                     this.setState({ loading: false, authErrorMsg: '' });
+                    this.props.history.replace("/");
                 })
                 .catch(error => {
                     console.log(error.response.data.error.message);
@@ -88,6 +89,7 @@ class Auth extends React.Component {
                     console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
                     this.setState({ loading: false, authErrorMsg: '' });
+                    this.props.history.replace("/");
                 })
                 .catch(error => {
                     console.log(error.response.data.error.message);
