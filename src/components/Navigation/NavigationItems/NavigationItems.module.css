@@ -5,10 +5,16 @@
 }
 
 .NavigationItems li {
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 .NavigationItems li a {
     text-decoration: none;
-    color: black;
+    color: #2B2B2B;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.NavigationItems li a:hover {
+    color: #4EB09B;
 }

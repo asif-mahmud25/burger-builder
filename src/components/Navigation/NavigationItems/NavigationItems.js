@@ -16,7 +16,7 @@ const NavigationItems = (props) => {
 
     return (
         <ul className={style.NavigationItems}>
-            <li><Link to="/">Burger Builder</Link></li>
+            <li><Link to="/">Home</Link></li>
             {orderLink}
             {authStat}
         </ul>

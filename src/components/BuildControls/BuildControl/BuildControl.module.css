@@ -2,16 +2,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
-.BuildControlBtn {
+.BuildControlBtnLess {
     display: block;
-    font: inherit;
-    padding: 5px;
-    margin: 0 5px;
-    width: 80px;
-    border: 1px solid #aa6817;
+    font-size: 20px;
+    font-weight: 400;
+    width: 120px;
+    height: 50px;
+    color: white;
+    background: #F28076;
+    border: none;
     cursor: pointer;
     outline: none;
+    border-radius: 6px;
+    margin-right: 16px;
+}
+
+.BuildControlBtnMore {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    width: 120px;
+    height: 50px;
+    color: white;
+    background: #4EB09B;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+}
+
+.ControlLabel {
+    font-size: 20px;
+    font-weight: 500;
+    width: 90px;
 }

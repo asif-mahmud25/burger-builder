@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    background-color: rgba(0,0,0,0.6); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     display: flex;
     justify-content: center;
@@ -22,10 +22,15 @@
     z-index: 3;
     background-color: white;
     width: 90%;
-    max-width: 600px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px black;
-    padding: 16px;
-    box-sizing: border-box;
+    max-width: 760px;
+    border: none;
+    padding: 30px;
+    border-radius: 20px;
     transition: all 0.3s ease-out;
+}
+
+@media (max-width: 600px) {
+    .Modal {
+        border-radius: 16px;
+    }
 }

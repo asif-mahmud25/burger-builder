@@ -1,12 +1,32 @@
 .NavBar {
-    height: 60px;
+    height: 130px;
     width: 100%;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
-    background-color: khaki;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
+}
+
+.NavBar img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin-right: 36px;
+}
+
+.brand {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.brand h2 {
+    font-size: 34px;
+    font-weight: 500;
+}
+
+@media (max-width: 700px) {
+    .NavBar {
+        display: none;
+    }
 }

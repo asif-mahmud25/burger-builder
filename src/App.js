@@ -27,14 +27,13 @@ function App(props) {
         <Route path="/orders" component={Orders} />
         <Route path="/logout" component={Logout} />
         <Route path="/auth" component={Auth} />
-        <Redirect to="/" />
       </Switch>
     )
   }
 
   return (
     <BrowserRouter>
-      <div>
+      <React.Fragment>
         <Layout>
           {/* <Route path="/" exact component={BurgerBuilder} />
           <Route path="/checkout" component={Checkout} />
@@ -43,7 +42,7 @@ function App(props) {
           <Route path="/logout" component={Logout} /> */}
           {routes}
         </Layout>
-      </div>
+      </React.Fragment>
     </BrowserRouter>
   );
 }
