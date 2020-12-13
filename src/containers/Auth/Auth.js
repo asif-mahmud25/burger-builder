@@ -143,8 +143,8 @@ class Auth extends React.Component {
                 <p className={warningStyleEmail}>Please enter a valid email.</p>
                 <input type="password" placeholder="Password" value={this.state.password} onChange={this.passwordChangeHandler} />
                 <p className={warningStylePassword}>Minimum 8 characters with atleast 1 letter and 1 number.</p>
-                <button type="submit">Submit</button>
                 <p className={style.Validation}>{this.state.authErrorMsg}</p>
+                <button type="submit">{this.state.isSignup ? 'Sign Up' : 'Sign In'}</button>
                 <p className={style.ChangeAuthMode} onClick={this.switchSignupHandler}>Go to {this.state.isSignup ? 'Sing In' : 'Sign Up'}</p>
             </form>
         );
@@ -153,9 +153,20 @@ class Auth extends React.Component {
             form = <Spinner />
         }
 
+        let formHeading = <div></div>;
+
+        if(this.state.isSignup){
+            formHeading = <h2>Please Sign Up</h2>;
+        }else {
+            formHeading = <h2>Please Sign In</h2>
+        }
+
         return (
-            <div>
-                {form}
+            <div className="container">
+                <div className={style.formStyle}>
+                    {formHeading}
+                    {form}
+                </div>
             </div>
         )
     }

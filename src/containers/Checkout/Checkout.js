@@ -24,7 +24,7 @@ class Checkout extends React.Component {
         );
 
         if (this.props.isAuth === false) {
-            dataForm = <p>Please Log In to Place Order!</p>
+            dataForm = <p className={style.warningText}>Please Log In to Place Order!</p>
         }
         return (
             <div className={style.Checkout}>
@@ -32,7 +32,9 @@ class Checkout extends React.Component {
                     checkoutCancel={this.checkoutCancelHandler}
                     checkoutContinue={this.checkoutContinueHandler}
                     ingredients={this.props.ingredients} />
-                {dataForm}
+                <div className="container">
+                    {dataForm}
+                </div>
             </div>
         )
     }

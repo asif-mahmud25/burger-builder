@@ -1,6 +1,9 @@
 .Validation {
     font-size: 14px;
-    color: red;
+    color: crimson;
+    font-weight: 400;
+    margin-top: -12px;
+    margin-bottom: 14px;
 }
 
 .Remove {
@@ -9,4 +12,68 @@
 
 .ChangeAuthMode {
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    color: #F28076;
+    margin-top: 10px;
+}
+
+.formStyle {
+    width: 100%;
+    text-align: center;
+}
+
+.formStyle h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: #2b2b2b;
+}
+
+.formStyle input {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    border: 1px solid #808080;
+    border-radius: 6px;
+    padding-left: 20px;
+    margin: 20px auto;
+    font-size: 20px;
+    color: #2b2b2b;
+    outline: none;
+}
+
+.formStyle button {
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    background: #4EB09B;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    .formStyle h2 {
+        font-size: 20px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .formStyle button {
+        font-size: 18px;
+    }
+
+    .formStyle input {
+        font-size: 18px;
+    }
 }

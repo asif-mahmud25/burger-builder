@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Order.module.css';
 
 const Order = (props) => {
 
@@ -13,14 +14,14 @@ const Order = (props) => {
 
     let outputIngredients = ingredients.map(el => {
         return(
-            <span key={el.name}>{el.name}: {el.ammout}</span>
+            <span key={el.name}>{el.name}: {el.ammout} </span>
         );
     })
 
     return(
-        <div>
-            <p>{outputIngredients}</p>
-            <p><strong>Price: {props.price.toFixed(2)}</strong></p>
+        <div className={style.order}>
+            <p className={style.orderDetails}>{outputIngredients}</p>
+            <p className={style.orderPrice}>Price: ${props.price.toFixed(2)}</p>
         </div>
     );
 }

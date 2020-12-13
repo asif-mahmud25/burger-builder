@@ -1,3 +1,12 @@
 .Checkout {
     width: 100%;
 }
+
+.warningText {
+    font-size: 20px;
+    font-weight: 400;
+    color: #F28076;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+}

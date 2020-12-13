@@ -1,4 +1,40 @@
-.CheckoutSummary {
-    width: 80%;
-    margin: auto;
+.checkoutHeading {
+    font-size: 24px;
+    color: #2b2b2b;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.btnContainer {
+    text-align: center;
+}
+
+.cancelBtn {
+    font-size: 20px;
+    font-weight: 400;
+    width: 140px;
+    height: 50px;
+    color: white;
+    background: #F28076;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+
+.continueBtn {
+    font-size: 20px;
+    font-weight: 400;
+    width: 140px;
+    height: 50px;
+    color: white;
+    background: #4EB09B;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+    margin-left: 8px;
 }

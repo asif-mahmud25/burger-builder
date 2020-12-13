@@ -46,7 +46,7 @@ class Orders extends React.Component {
         }
 
         return (
-            <div>
+            <div className="container">
                 {orders}
             </div>
         );

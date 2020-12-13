@@ -12,3 +12,16 @@
     font-size: 16px;
     color: #808080;
 }
+
+
+@media (max-width: 600px) {
+
+    .Footer {
+        height: 60px;
+        box-shadow: 0px -2px 4px rgba(0,0,0,0.1);
+    }
+
+    .Footer p {
+        font-size: 14px;
+    }
+}
