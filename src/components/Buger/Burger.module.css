@@ -18,6 +18,7 @@
 .AddText {
     font-size: 20px;
     font-weight: 400;
+    color: #2b2b2b;
 }
 
 @media (max-width: 600px){

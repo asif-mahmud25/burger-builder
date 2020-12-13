@@ -38,4 +38,17 @@
     font-size: 20px;
     font-weight: 500;
     width: 90px;
+    color: #2b2b2b;
+}
+
+
+@media (max-width: 600px) {
+    .ControlLabel {
+        font-size: 18px;
+        width: 80px;
+    }
+
+    .BuildControlBtnLess, .BuildControlBtnMore {
+        font-size: 18px;
+    }
 }

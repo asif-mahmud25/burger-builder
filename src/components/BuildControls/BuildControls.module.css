@@ -13,6 +13,7 @@
     font-weight: 500;
     margin-top: 40px;
     margin-bottom: 40px;
+    color: #2b2b2b;
 }
 
 .OrderNowBtn {
@@ -40,5 +41,10 @@
     .PriceTag {
         margin-top: 24px;
         margin-bottom: 24px;
+        font-size: 20px;
+    }
+
+    .OrderNowBtn {
+        font-size: 18px;
     }
 }

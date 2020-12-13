@@ -61,9 +61,14 @@
 
     .cancelBtn, .continueBtn {
         width: 48%;
+        font-size: 18px;
     }
     
     .continueBtn {
         margin-right: 4%;
+    }
+
+    .orderList, .orderPrice {
+        font-size: 18px;
     }
 }

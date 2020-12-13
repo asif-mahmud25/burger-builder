@@ -23,6 +23,7 @@
 .brand h2 {
     font-size: 34px;
     font-weight: 500;
+    color: #2b2b2b;
 }
 
 @media (max-width: 700px) {
