@@ -24,7 +24,7 @@ const SidebarItems = (props) => {
     return (
         <div className={sidebarStyle}>
             <div className={style.sidebarBox}>
-                <img src={cross} className={style.cross} onClick={props.close} />
+                <img src={cross} className={style.cross} onClick={props.close} alt="Close"/>
                 <div>
                     <ul className={style.sidebarList}>
                         <li onClick={props.close}><Link to="/">Home</Link></li>

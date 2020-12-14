@@ -8,7 +8,7 @@ const NavBar = (props) => {
         <header className="container">
             <div className={style.NavBar}>
                 <div className={style.brand}>
-                   <img src={logo}/>
+                   <img src={logo} alt=""/>
                    <h2>Burger Builder</h2>
                 </div>
                 <nav>

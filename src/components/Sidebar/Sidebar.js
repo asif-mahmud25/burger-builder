@@ -27,10 +27,10 @@ const Sidebar = () => {
             <div className="container">
                 <div className={style.Sidebar}>
                     <div className={style.brand}>
-                        <img src={burger} className={style.logo} />
+                        <img src={burger} className={style.logo} alt=""/>
                         <h3 className={style.brandName}>Burger Builder</h3>
                     </div>
-                    <img src={bars} className={style.bars} onClick={sidebarShow}/>
+                    <img src={bars} className={style.bars} onClick={sidebarShow} alt="Menu"/>
                 </div>
             </div>
         </React.Fragment>
