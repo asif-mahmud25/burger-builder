@@ -6,6 +6,7 @@ class Logout extends React.Component {
 
     componentDidMount = () => {
         this.props.logout();
+        localStorage.clear('idToken');
     }
 
     render() {

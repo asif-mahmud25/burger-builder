@@ -65,6 +65,10 @@ class Auth extends React.Component {
                 .then(response => {
                     console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
+
+                    //save idToken in local storage
+                    localStorage.setItem('idToken', response.data.idToken);
+                    
                     this.setState({ loading: false, authErrorMsg: '' });
                     this.props.history.replace("/");
                 })
@@ -88,6 +92,10 @@ class Auth extends React.Component {
                 .then(response => {
                     console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
+
+                    //save idToken in local storage
+                    localStorage.setItem('idToken', response.data.idToken);
+
                     this.setState({ loading: false, authErrorMsg: '' });
                     this.props.history.replace("/");
                 })

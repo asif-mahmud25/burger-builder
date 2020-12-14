@@ -70,6 +70,15 @@ const reducer = (state = initialState, action) => {
                 userId: null
             }
         }
+    }else if(action.type === 'LOGGED_IN'){
+        return{
+            ...state,
+            auth: {
+                ...state.auth,
+                idToken: action.idToken,
+                userId: null
+            }
+        }
     }
     else{
         return state;

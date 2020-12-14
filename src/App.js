@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Layout from './components/Layout/Layout'
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
@@ -9,6 +9,11 @@ import Logout from './containers/Auth/Logout/Logout';
 import { connect } from 'react-redux';
 
 function App(props) {
+
+  useEffect(() => {
+    let idToken = localStorage.getItem('idToken');
+    props.loggedIn(idToken);
+  }, [])
 
   let routes = (
     <Switch>
@@ -53,4 +58,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+      loggedIn: (idToken) => dispatch({ type: 'LOGGED_IN', idToken: idToken})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
