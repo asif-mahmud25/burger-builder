@@ -13,7 +13,7 @@ Please checkout the live app here [Burger Builder](https://burger-builder-7fbdc.
 * Authentication
 * User friendly UI
 * Fully responsive
-* PWA feature for phones (if you add the app to the homescreen on your phone it acts like a ntive android / ios app)
+* PWA feature for phones (if you add the app to the homescreen on your phone it acts like a native android / ios app)
 
 ## Technologies Used
 
@@ -41,7 +41,7 @@ Please checkout the live app here [Burger Builder](https://burger-builder-7fbdc.
 ### Confirm Order Page
 ![confirm-order](./screenshots/confirm_order.png)
 
-### Order Details Page
+### Input Order Details Page
 ![order-details](./screenshots/order_details.png)
 
 ### Orders List Page
