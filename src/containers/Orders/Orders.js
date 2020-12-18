@@ -3,6 +3,7 @@ import Order from '../../components/Order/Order';
 import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
+import firebaseConfig from '../../firebaseConfig';
 
 
 class Orders extends React.Component {
@@ -14,7 +15,7 @@ class Orders extends React.Component {
 
     componentDidMount() {
         let fetchedData = [];
-        axios.get('https://burger-builder-7fbdc.firebaseio.com/orders.json?auth=' + this.props.idToken)
+        axios.get(`${firebaseConfig.databaseURL}/orders.json?auth=${this.props.idToken}`)
             .then(response => {
                 for (let i in response.data) {
                     fetchedData.push({

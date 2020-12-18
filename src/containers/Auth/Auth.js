@@ -3,6 +3,7 @@ import style from './Auth.module.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import firebaseConfig from '../../firebaseConfig';
 
 class Auth extends React.Component {
 
@@ -53,7 +54,7 @@ class Auth extends React.Component {
 
         //User sign up to firebase
         if (emailTest && passwordTest && this.state.isSignup) {
-            console.log('in signup ');
+            console.log('in signup');
             this.setState({ loading: true });
             const newUser = {
                 email: this.state.email,
@@ -61,9 +62,8 @@ class Auth extends React.Component {
                 returnSecureToken: true
             }
 
-            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
+            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + firebaseConfig.apiKey, newUser)
                 .then(response => {
-                    console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
 
                     //save idToken in local storage
@@ -88,9 +88,8 @@ class Auth extends React.Component {
                 returnSecureToken: true
             }
 
-            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBiWKUXbu4zqY6wPxR1T5rsg-721hh3p2Q', newUser)
+            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + firebaseConfig.apiKey, newUser)
                 .then(response => {
-                    console.log(response);
                     this.props.onAuthSuccess(response.data.idToken, response.data.localId);
 
                     //save idToken in local storage

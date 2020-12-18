@@ -1,5 +1,5 @@
 .formStyle {
-    margin: 60px auto;
+    margin: 40px auto;
     width: 100%;
     max-width: 600px;
 }
@@ -50,6 +50,11 @@
 }
 
 @media (max-width: 600px) {
+
+    .formStyle {
+        margin: 20px auto;
+    }
+    
     .formStyle h3 {
         font-size: 20px;
     }

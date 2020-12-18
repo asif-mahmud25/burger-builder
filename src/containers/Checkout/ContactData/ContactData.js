@@ -3,6 +3,7 @@ import axios from 'axios';
 import Spiner from '../../../components/UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import style from './ContactData.module.css';
+import firebaseConfig from '../../../firebaseConfig';
 
 class ContactData extends React.Component {
 
@@ -36,9 +37,8 @@ class ContactData extends React.Component {
             }
 
             //Posting data to firebase
-            axios.post('https://burger-builder-7fbdc.firebaseio.com/orders.json?auth=' + this.props.idToken, order)
+            axios.post(`${firebaseConfig.databaseURL}/orders.json?auth=${this.props.idToken}`, order)
                 .then(resposnse => {
-                    console.log(resposnse);
                     this.setState({ loading: false });
                     this.props.onRedirect();
                     this.props.history.push('/');
